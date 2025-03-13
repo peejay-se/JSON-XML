@@ -98,7 +98,8 @@ Felmeddelande:
 [$.age: string found, integer expected]
 ```
 
-_IN:_ personFAIL.json  - JSON-koden nedan så är felet "age":"21" skall vara "age":21 (skall vara en integer istället för en sträng)
+_IN:_ personFAIL.json  
+JSON-koden som genererar fel är "age":"21" skall vara "age":21 (skall vara en integer istället för en sträng)
 ```json
 {
 	"firstName" : "John",
