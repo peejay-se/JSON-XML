@@ -1,7 +1,5 @@
-# JSON-XML
+# JSON-XML och vice versa 
 Konvertering mellan JSON och XML och vice versa
-
-
 
 ```
 mvn clean package
