@@ -12,8 +12,9 @@ XMLtoJSON [infil] [utfil]
 java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.JSONToXML
 JSONToXML [infil] [utfil]
 
-java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.JSONSchemaValidation
+$ java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.JSONSchemaValidation
 Fel antal argument....
+JSONSchemaValidation [infil] [schemafil]
 
 java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.Json2XML     
 Fel antal argument....
@@ -30,7 +31,7 @@ Filnamn(ut)=personOK.xml
 Skriver filen personOK.xml
 ```
 
-IN: personOK.json
+_IN:_ personOK.json
 ```json
 {
   "firstName": "John",
@@ -39,7 +40,7 @@ IN: personOK.json
 }
 ```
 
-Ut: personOK.xml
+_Ut:_ personOK.xml
 ```xml
 <?xml version='1.1' encoding='UTF-8'?>
 <ObjectNode>
@@ -57,7 +58,7 @@ Infil = personOK.xml
 Util = Back2Json.json
 ```
 
-In: personOK.xml
+_In:_ personOK.xml
 ```xml
 <?xml version='1.1' encoding='UTF-8'?>
 <ObjectNode>
@@ -67,10 +68,52 @@ In: personOK.xml
 </ObjectNode>
 ```
 
-UT: Back2Json.json
+_Ut:_ Back2Json.json
 ```json
 {"ObjectNode":{"firstName":"John","lastName":"Doe","age":21}}
 ```
 
 ___
 
+Validering som är ok
+
+```
+$ java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.JSONSchemaValidation personOK.json person.schema.json
+Filnamn(in)=personOK.json
+Filnamn(ut)=person.schema.json
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+Finns inga felmeddelanden!
+```
+___
+
+Validering som går fel
+```
+$ java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.JSONSchemaValidation personFAIL.json person.schema.json
+Filnamn(in)=personFAIL.json
+Filnamn(ut)=person.schema.json
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+Felmeddelande:
+[$.age: string found, integer expected]
+```
+___
+
+```
+$ java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.Json2XML personOK.json AndraXML.xml
+Filnamn(in)=personOK.json
+Filnamn(ut)=AndraXML.xml
+Skriver filen AndraXML.xml
+```
+
+_Ut:_ AndraXML.xml
+```xml
+<?xml version='1.1' encoding='UTF-8'?>
+<ObjectNode>
+  <firstName>John</firstName>
+  <lastName>Doe</lastName>
+  <age>21</age>
+</ObjectNode>
+```
