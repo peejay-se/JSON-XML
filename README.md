@@ -97,6 +97,15 @@ SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 Felmeddelande:
 [$.age: string found, integer expected]
 ```
+
+_IN:_ personFAIL.json  - JSON-koden nedan så är felet "age":"21" skall vara "age":21 (skall vara en integer istället för en sträng)
+```json
+{
+	"firstName" : "John",
+	"lastName" : "Doe",
+	"age" : "21"
+}
+```
 ___
 
 ```
