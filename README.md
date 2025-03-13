@@ -125,3 +125,16 @@ _Ut:_ AndraXML.xml
   <age>21</age>
 </ObjectNode>
 ```
+
+___
+
+```
+$ java -cp JSONXML-0.0.1-SNAPSHOT-jar-with-dependencies.jar se.peejay.lab.JSONToXML personOK.json personOK.xml
+Filnamn (in)=personOK.json
+Filnamn (ut)=personOK.xml
+```
+
+_Ut:_ personOK.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?><root><firstName>John</firstName><lastName>Doe</lastName><age>21</age></root>
+```
